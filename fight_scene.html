@@ -61,12 +61,9 @@ function create () {
     ability4 = this.add.image(643, 720, 'bow_ability_icon');
     ability4.setScale(0.35);
 
-    var playerLegs;
-    playerLegs = this.add.image(this.cameras.main.width / 4, 490, 'archer_legs');
-    var playerBody;
-    playerBody = this.add.image(this.cameras.main.width / 4, 440, 'archer_body');
-    var playerHead;
-    playerHead = this.add.image(this.cameras.main.width / 4, 330, 'archer_head');
+    var playerLegs = this.add.image(this.cameras.main.width / 4, 490, 'archer_legs');
+    var playerBody = this.add.image(this.cameras.main.width / 4, 440, 'archer_body');
+    var playerHead = this.add.image(this.cameras.main.width / 4, 330, 'archer_head');
 
     var enemyLegs;
     enemyLegs = this.add.image((this.cameras.main.width / 4) * 3, 490, 'archer_legs');
@@ -76,7 +73,7 @@ function create () {
     enemyBody.flipX = true;
     var enemyHead;
     enemyHead = this.add.image((this.cameras.main.width / 4) * 3, 330, 'archer_head');
-    enemyHead.flipX = true;
+    enemyLegs.flipX = true;
 }
 
 function update () {
