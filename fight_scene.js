@@ -1,40 +1,10 @@
-<!doctype html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8" />
-    <title>Polypets</title>
-    <script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
-    <style type="text/css">
-        body {
-            margin: 0;
-        }
-    </style>
-</head>
-<body>
-
-<script type="text/javascript">
-
-var config = {
-    type: Phaser.AUTO,
-    width: 1023,
-    height: 766,
-    physics: {
-        default: 'arcade',
-        arcade: {
-            gravity: { y: 300 },
-            debug: false
-        }
-    },
-    scene: {
-        preload: preload,
-        create: create,
-        update: update
-    }
+export default {
+    preload: preload,
+    create: create,
+    update: update
 };
 
-var game = new Phaser.Game(config);
-
-function preload () {
+function preload() {
     this.load.image('battle_background', 'assets/battle_background.png');
     this.load.image('bow_ability_icon', 'assets/bow_icon.png');
     this.load.image('archer_head', 'assets/archer_head.svg');
@@ -42,14 +12,20 @@ function preload () {
     this.load.image('archer_legs', 'assets/archer_legs.svg');
 }
 
-function create () {
+function create() {
     var battleSceneBackground;
     battleSceneBackground = this.add.image(511.5, 383, 'battle_background');
 
-    var playerBattleSceneHealth;
-    battleSceneHealth = this.add.text(10, 5, '100/100', { fontFamily: 'GlueGun-GW8Z', fontSize: '50px', fill: '#000'});
-    var enemyBattleSceneHealth;
-    enemySceneHealth = this.add.text(846, 5, '100/100', { fontFamily: 'GlueGun-GW8Z', fontSize: '50px', fill: '#000'});
+    var playerBattleSceneHealth = this.add.text(10, 5, '100/100', {
+        fontFamily: 'GlueGun-GW8Z',
+        fontSize: '50px',
+        fill: '#000'
+    });
+    var enemyBattleSceneHealth = this.add.text(846, 5, '100/100', {
+        fontFamily: 'GlueGun-GW8Z',
+        fontSize: '50px',
+        fill: '#000'
+    });
 
     var ability1, ability2, ability3, ability4;
     ability1 = this.add.image(373, 720, 'bow_ability_icon');
@@ -73,14 +49,9 @@ function create () {
     enemyBody.flipX = true;
     var enemyHead;
     enemyHead = this.add.image((this.cameras.main.width / 4) * 3, 330, 'archer_head');
-    enemyLegs.flipX = true;
+    enemyHead.flipX = true;
 }
 
-function update () {
-    
+function update() {
+
 }
-
-</script>
-
-</body>
-</html>

@@ -1,40 +1,11 @@
-<!doctype html> 
-<html lang="en"> 
-<head> 
-    <meta charset="UTF-8" />
-    <title>Polypets</title>
-    <script src="//cdn.jsdelivr.net/npm/phaser@3.11.0/dist/phaser.js"></script>
-    <style type="text/css">
-        body {
-            margin: 0;
-        }
-    </style>
-</head>
-<body>
-
-<script type="text/javascript">
-
-var config = {
-    type: Phaser.AUTO,
-    width: 1023,
-    height: 766,
-    physics: {
-        default: 'arcade',
-        arcade: {
-            gravity: { y: 300 },
-            debug: false
-        }
-    },
-    scene: {
-        preload: preload,
-        create: create,
-        update: update
-    }
+export default {
+    preload: preload,
+    create: create,
+    update: update
+    key: 'create';
 };
 
-var game = new Phaser.Game(config);
-
-function preload () {
+function preload() {
     this.load.image('create_background', 'assets/create_background.png');
     this.load.image('create_scene_arrow', 'assets/create_scene_arrow.png')
     this.load.image('fight_button', 'assets/fight_button.png');
@@ -43,7 +14,7 @@ function preload () {
     this.load.image('archer_legs', 'assets/archer_legs.svg');
 }
 
-function create () {
+function create() {
     this.cameras.main.setBackgroundColor(0xA3817A)
     var createSceneBackground;
     createSceneBackground = this.add.image(511.5, 383, 'create_background');
@@ -74,9 +45,13 @@ function create () {
     createSceneArrowRight3.setScale(0.40);
     createSceneArrowRight3.flipX = true;
 
-    var fightButton;
-    fightButton = this.add.image(this.cameras.main.width / 2, 675, 'fight_button');
-    fightButton.setScale(0.20);
+    let fightButton = this.add.image(this.cameras.main.width / 2, 675, 'fight_button');
+    fightButton
+        .setScale(0.25)
+        .setInteractive({cursor: 'pointer'})
+        .on("pointerup", () => {
+            this.scene.start('fight', this.selected)
+        });
 
     var archerHead;
     archerHead = this.add.image(this.cameras.main.width / 2, 300, 'archer_head');
@@ -86,11 +61,6 @@ function create () {
     archerLegs = this.add.image(this.cameras.main.width / 2, 580, 'archer_legs');
 }
 
-function update () {
+function update() {
     
 }
-
-</script>
-
-</body>
-</html>
