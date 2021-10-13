@@ -1,11 +1,11 @@
-import fight_scene from './fight_scene.js';
-import create_scene from './create_scene.js';
+import fight_scene from './fight_scene';
+import create_scene from './create_scene';
 
-var config = {
+let config = {
     type: Phaser.AUTO,
     width: 1023,
     height: 766,
-    scene: create_scene, fight_scene
+    scene: [create_scene, fight_scene]
 };
 
-var game = new Phaser.Game(config);
+let game = new Phaser.Game(config);
