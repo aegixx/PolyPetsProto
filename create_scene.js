@@ -64,4 +64,5 @@ class CreateScene extends Phaser.scene {
     }
 }
 
+
 export default new CreateScene();
