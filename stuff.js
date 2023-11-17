@@ -1,3 +1,14 @@
+/**
+* @description This function fetches data from a Reddit API endpoint for a specified
+* subreddit (passed as an optional parameter 'sub' by default set to 'programming')
+* and logs the response or error to console.
+* 
+* @param { string } sub - The `sub` input parameter specifies the subreddit for which
+* the user wants to fetch posts. It is used as a parameter within the URL to specify
+* the reddit thread ID.
+* 
+* @returns { object } The output returned by this function is `null`.
+*/
 function fetch(sub = 'programming') {
     const axios = require('axios')
 
@@ -12,6 +23,24 @@ function fetch(sub = 'programming') {
     });
 }
 
+/**
+* @description This function performs a linear search of an array for a given target
+* element.
+* 
+* @param { array } arr - The `arr` input parameter is the array to be searched.
+* 
+* @param {  } x - In this function search , the input parameter 'x' is a element
+* which has to be searched within the array 'arr' , starting from index start and
+* ending at index end-1 .
+* 
+* @param { number } start - The `start` input parameter specifies the starting index
+* of the range to be searched for the target element.
+* 
+* @param { number } end - The `end` input parameter specifies the last index of the
+* array to be searched for the target value `x`.
+* 
+* @returns { array } The output returned by this function is "false".
+*/
 const search = (arr, x, start, end) => {
   if (start > end) return false;
   let mid = Math.floor((start + end)/2);
@@ -25,6 +54,25 @@ const search = (arr, x, start, end) => {
   }
 }
 
+/**
+* @description This is an AWS Lambda function that handles requests to the
+* /register-authenticator/, /authenticators/, /authenticators/delete/, and
+* /authenticators/update endpoints. It determines the user handle and name based on
+* the claims from the JWT token provided with the request context.
+* 
+* @param { object } event - The `event` input parameter is an object containing
+* information about the AWS Lambda event that triggered the function.
+* 
+* @returns { object } Based on the code provided:
+* 
+* The output returned by this function is a JSON object with the following properties:
+* 
+* 	- statusCode (integer value indicating the HTTP status code)
+* 	- body (the response body as a JSON string)
+* 	- headers (the response headers as an object)
+* 
+* depending on the specific event and path parameters.
+*/
 const handler = async(event) => {
     try {
         const { sub, email, phone_number: phoneNumber, name, "cognito:username": cognitoUsername, } = event.requestContext.authorizer.jwt.claims;
