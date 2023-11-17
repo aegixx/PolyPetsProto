@@ -1,8 +1,14 @@
 class CreateScene extends Phaser.scene {
+/**
+* @description This is a constructor function for a new object.
+*/
     constructor() {
         super({key: 'create'});
     }
 
+/**
+* @description This function preloads various images for the game's assets.
+*/
     preload() {
         this.load.image('create_background', 'assets/create_background.png');
         this.load.image('create_scene_arrow', 'assets/create_scene_arrow.png')
@@ -12,6 +18,10 @@ class CreateScene extends Phaser.scene {
         this.load.image('archer_legs', 'assets/archer_legs.svg');
     }
 
+/**
+* @description This function creates a scene with a background image and several
+* arrow objects pointing to different directions.
+*/
     create() {
         this.cameras.main.setBackgroundColor(0xA3817A)
         var createSceneBackground;
@@ -59,6 +69,10 @@ class CreateScene extends Phaser.scene {
         archerLegs = this.add.image(this.cameras.main.width / 2, 580, 'archer_legs');
     }
 
+/**
+* @description The `update()` function does nothing because it is empty. It has no
+* statements or code inside its curly braces.
+*/
     update() {
         
     }
